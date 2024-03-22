@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Funclib.js</title>
+</head>
+<body>
+    <div id="myDiv" style="width: 100px; height: 100px; background: red;"></div>
+    <button onclick="fullScreen()">放大</button>
+    <input type="text" id="ipt" oninput="onIptChange()">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./src/funclib.js"></script>
+    <!-- <script src="./src/funclib.min.js"></script> --> 
+    <script>
+        /**
+         * Url
+         * =======================================================================
+         */
+        // const url = 'https://www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6&rsv_spt=10';
+        // fn.log(fn.parseQueryString(url));
+        // const params = {name: 'Tom', age: 28};
+        // fn.log(fn.stringifyQueryString(params));
+        // fn.log($('#ipt').val(), 'Woooooooooooooooooo00000000000000000000066566600660000a');
+        /**
+         * Function
+         * =======================================================================
+         */
+        // var logVal = fn.debounce(function() {
+        //     fn.log($('#ipt').val(), false);
+        // }, 500);
+        // function onIptChange(e) {
+        //     logVal();
+        // }
+        // var showClientTop = fn.throttle(function(e) {
+        //     fn.log(e.clientX, false);
+        // }, 1000);
+        // $(document).mousemove(function(e) {
+        //     showClientTop(e);
+        // });
+
+        function fullScreen() {
+            fn.fullScreen('#myDiv', function() {
+                var fsChangeEvent = fn.fullScreenChange(function() {
+                    fn.log(111);
+                    fn.exitFullScreen();
+                    fsChangeEvent.remove();
+                    // fn.fullScreenChange.removeAll();
+                });
+            });
+        }
+    </script>
+</body>
+</html>
